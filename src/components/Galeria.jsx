@@ -12,7 +12,7 @@ import FOTO5 from "../img/FOTO5.jpeg";
 import FOTO6 from "../img/FOTO6.jpeg";
 import FOTO7 from "../img/FOTO7.jpeg";
 import FOTO8 from "../img/FOTO8.jpeg";
-import FOTO9 from "../img/FOTO9.jpeg";
+import foto9 from "../img/foto9.jpeg";
 import FOTO10 from "../img/FOTO10.jpeg";
 
 export default function Galeria() {
@@ -50,7 +50,7 @@ export default function Galeria() {
       titulo: "Fortalecimiento de brigadas empresariales",
     },
     {
-      imagen: FOTO9,
+      imagen: foto9,
       titulo: "Intervención en seguridad vial operacional",
     },
     {
