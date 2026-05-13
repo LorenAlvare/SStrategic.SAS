@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -36,10 +37,40 @@ export default function Contacto() {
       return;
     }
 
-    setError("");
-    setEnviado(true);
+    emailjs
+      .send(
+        "service_o56gvug",
+        "template_i4glevv",
+        {
+          nombre: form.nombre,
+          email: form.email,
+          telefono: form.telefono,
+          empresa: form.empresa,
+          servicio: form.servicio,
+          mensaje: form.mensaje,
+        },
+        "Q13StvRxQHLuivZkA",
+      )
+      .then(
+        () => {
+          setError("");
+          setEnviado(true);
 
-    console.log("Formulario enviado:", form);
+          setForm({
+            nombre: "",
+            email: "",
+            telefono: "",
+            empresa: "",
+            servicio: "",
+            mensaje: "",
+          });
+        },
+        (error) => {
+          console.log("ERROR EMAILJS:", error);
+          console.log("TEXTO ERROR:", error.text);
+          setError("Ocurrió un error al enviar el mensaje.");
+        },
+      );
   };
 
   return (
@@ -64,7 +95,7 @@ export default function Contacto() {
               <Mail size={18} />
               contacto@sstrategic.com.co
             </div>
-            
+
             <div className="flex items-center gap-2">
               <Phone size={18} />
               321 987 6543 - 320 840 2820
@@ -79,7 +110,6 @@ export default function Contacto() {
               <Phone size={18} />
               WhatsApp: +57 320 840 2820
             </div>
-
           </div>
         </div>
 
