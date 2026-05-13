@@ -1,4 +1,4 @@
-import Video1 from "../video/video1.mp4";
+import Video1 from "../video/Video1.mp4";
 
 export default function VideoSection() {
   return (
