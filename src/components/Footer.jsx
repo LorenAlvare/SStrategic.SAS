@@ -55,13 +55,13 @@ export default function Footer() {
               <MapPin size={16} /> Bogotá, Colombia
             </li>
             <li className="flex items-center gap-2">
-              <Phone size={16} /> +57 321 987 6543
+              <Phone size={16} /> +57 302 738 0325
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} /> +57 320 840 2820
             </li>
             <li className="flex items-center gap-2">
-              <Mail size={16} /> contacto@sstrategic.com.co
+              <Mail size={16} /> sstrategic.sas@gmail.com
             </li>
           </ul>
         </div>

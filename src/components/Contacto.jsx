@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 export default function Contacto() {
@@ -93,12 +94,12 @@ export default function Contacto() {
           <div className="mt-8 space-y-4 text-primary">
             <div className="flex items-center gap-2">
               <Mail size={18} />
-              contacto@sstrategic.com.co
+              sstrategic.sas@gmail.com
             </div>
 
             <div className="flex items-center gap-2">
               <Phone size={18} />
-              321 987 6543 - 320 840 2820
+              302 738 0325 - 320 840 2820
             </div>
 
             <div className="flex items-center gap-2">
@@ -109,6 +110,34 @@ export default function Contacto() {
             <div className="flex items-center gap-2">
               <Phone size={18} />
               WhatsApp: +57 320 840 2820
+            </div>
+            <div className="flex items-center gap-4 pt-4">
+              <a
+                href="https://www.instagram.com/sstrategicsas"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-pink-500 transition"
+              >
+                <FaInstagram size={28} />
+              </a>
+
+              <a
+                href="https://www.facebook.com/profile.php?id=61587138627582"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-blue-600 transition"
+              >
+                <FaFacebook size={28} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/sstrategic-sas-ab69793ab/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-blue-500 transition"
+              >
+                <FaLinkedin size={28} />
+              </a>
             </div>
           </div>
         </div>
