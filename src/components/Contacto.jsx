@@ -41,7 +41,7 @@ export default function Contacto() {
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_o56gvug",
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_i4glevv",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_jbfnb8g",
         {
           logo_url: `${window.location.origin}/logo.png`,
           fecha_envio: new Date().toLocaleDateString("es-CO", {
