@@ -40,9 +40,15 @@ export default function Contacto() {
 
     emailjs
       .send(
-        "service_o56gvug",
-        "template_i4glevv",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_o56gvug",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_i4glevv",
         {
+          logo_url: `${window.location.origin}/logo.svg`,
+          fecha_envio: new Date().toLocaleDateString("es-CO", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }),
           nombre: form.nombre,
           email: form.email,
           telefono: form.telefono,
@@ -50,7 +56,7 @@ export default function Contacto() {
           servicio: form.servicio,
           mensaje: form.mensaje,
         },
-        "Q13StvRxQHLuivZkA",
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "Q13StvRxQHLuivZkA",
       )
       .then(
         () => {
@@ -67,8 +73,7 @@ export default function Contacto() {
           });
         },
         (error) => {
-          console.log("ERROR EMAILJS:", error);
-          console.log("TEXTO ERROR:", error.text);
+          console.error("ERROR EMAILJS:", error);
           setError("Ocurrió un error al enviar el mensaje.");
         },
       );
@@ -158,61 +163,89 @@ export default function Contacto() {
             </div>
           )}
 
-          <input
-            name="nombre"
-            value={form.nombre}
-            onChange={handleChange}
-            placeholder="Nombre *"
-            className="w-full p-3 border rounded-lg"
-          />
+          <label className="block">
+            <span className="sr-only">Nombre</span>
+            <input
+              name="nombre"
+              value={form.nombre}
+              onChange={handleChange}
+              placeholder="Nombre *"
+              autoComplete="name"
+              required
+              className="w-full p-3 border rounded-lg"
+            />
+          </label>
 
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="Email *"
-            className="w-full p-3 border rounded-lg"
-          />
+          <label className="block">
+            <span className="sr-only">Email</span>
+            <input
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Email *"
+              autoComplete="email"
+              required
+              className="w-full p-3 border rounded-lg"
+            />
+          </label>
 
-          <input
-            name="telefono"
-            value={form.telefono}
-            onChange={handleChange}
-            placeholder="Teléfono *"
-            className="w-full p-3 border rounded-lg"
-          />
+          <label className="block">
+            <span className="sr-only">Teléfono</span>
+            <input
+              name="telefono"
+              type="tel"
+              value={form.telefono}
+              onChange={handleChange}
+              placeholder="Teléfono *"
+              autoComplete="tel"
+              required
+              className="w-full p-3 border rounded-lg"
+            />
+          </label>
 
-          <input
-            name="empresa"
-            value={form.empresa}
-            onChange={handleChange}
-            placeholder="Empresa"
-            className="w-full p-3 border rounded-lg"
-          />
+          <label className="block">
+            <span className="sr-only">Empresa</span>
+            <input
+              name="empresa"
+              value={form.empresa}
+              onChange={handleChange}
+              placeholder="Empresa"
+              autoComplete="organization"
+              className="w-full p-3 border rounded-lg"
+            />
+          </label>
 
-          <select
-            name="servicio"
-            value={form.servicio}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg"
-          >
-            <option value="">Servicio de interés *</option>
-            <option value="SG-SST">SG-SST</option>
-            <option value="PESV">PESV</option>
-            <option value="Brigadas">Brigadas de Emergencia</option>
-            <option value="VR">Simulaciones VR</option>
-            <option value="Drones">Análisis con Drones</option>
-          </select>
+          <label className="block">
+            <span className="sr-only">Servicio de interés</span>
+            <select
+              name="servicio"
+              value={form.servicio}
+              onChange={handleChange}
+              required
+              className="w-full p-3 border rounded-lg"
+            >
+              <option value="">Servicio de interés *</option>
+              <option value="SG-SST">SG-SST</option>
+              <option value="PESV">PESV</option>
+              <option value="Brigadas">Brigadas de Emergencia</option>
+              <option value="VR">Simulaciones VR</option>
+              <option value="Drones">Análisis con Drones</option>
+            </select>
+          </label>
 
-          <textarea
-            name="mensaje"
-            value={form.mensaje}
-            onChange={handleChange}
-            placeholder="Mensaje *"
-            rows="5"
-            className="w-full p-3 border rounded-lg"
-          />
+          <label className="block">
+            <span className="sr-only">Mensaje</span>
+            <textarea
+              name="mensaje"
+              value={form.mensaje}
+              onChange={handleChange}
+              placeholder="Mensaje *"
+              rows="5"
+              required
+              className="w-full p-3 border rounded-lg"
+            />
+          </label>
 
           <button
             type="submit"

@@ -1,16 +1,44 @@
-# React + Vite
+# SSTrategic Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web corporativo de SSTrategic SAS, desarrollado con React, Vite y Tailwind CSS.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js
+- npm
 
-## React Compiler
+## Comandos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
 
-## Expanding the ESLint configuration
+## Variables de entorno
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+El formulario usa EmailJS. Puedes configurar estas variables en un archivo `.env`:
+
+```env
+VITE_EMAILJS_SERVICE_ID=service_o56gvug
+VITE_EMAILJS_TEMPLATE_ID=template_i4glevv
+VITE_EMAILJS_PUBLIC_KEY=Q13StvRxQHLuivZkA
+```
+
+Si no se definen, el sitio usa los valores actuales como respaldo para no romper el envío del formulario.
+
+El formulario también envía estos campos extra para usarlos en la plantilla de EmailJS:
+
+- `logo_url`: URL pública del logo, por ejemplo `https://tudominio.com/logo.svg`.
+- `fecha_envio`: fecha legible del envío.
+
+Para que el logo aparezca en correos o PDFs generados desde EmailJS, usa `{{logo_url}}` como `src` de la imagen en la plantilla. La imagen debe estar disponible desde una URL pública, no desde una ruta local del computador.
+
+## Estructura
+
+- `src/components`: secciones de la landing page.
+- `src/img`: imágenes usadas por el sitio.
+- `src/video`: video corporativo.
+- `public`: archivos públicos como el logo.

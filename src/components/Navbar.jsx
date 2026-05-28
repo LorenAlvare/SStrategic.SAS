@@ -12,6 +12,7 @@ export default function Navbar() {
       setScroll(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -24,7 +25,7 @@ export default function Navbar() {
 
         {/* LOGO */}
         <div className="flex items-center gap-2">
-          <img src={logo} alt="logo" className="h-10" />
+          <img src={logo} alt="Logo SSTrategic SAS" className="h-10" />
           <h1 className="font-bold text-lg">
             <span className="text-red-500">SST</span>
             <span className="text-blue-400">rategic</span>
@@ -47,15 +48,21 @@ export default function Navbar() {
             <Phone size={16} />
             +57 320 840 2820
           </div>
-          <button className="bg-accent text-black px-4 py-2 rounded font-semibold hover:scale-105 transition">
+          <a
+            href="#contacto"
+            className="bg-accent text-black px-4 py-2 rounded font-semibold hover:scale-105 transition"
+          >
             Cotizar ahora
-          </button>
+          </a>
         </div>
 
         {/* BOTÓN MÓVIL */}
         <button
+          type="button"
           className="md:hidden text-white text-2xl"
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
         >
           ☰
         </button>
@@ -70,9 +77,13 @@ export default function Navbar() {
           <a href="#metodologia" onClick={() => setOpen(false)}>Metodología</a>
           <a href="#contacto" onClick={() => setOpen(false)}>Contacto</a>
 
-          <button className="bg-accent text-black py-2 rounded mt-2">
+          <a
+            href="#contacto"
+            onClick={() => setOpen(false)}
+            className="bg-accent text-black py-2 rounded mt-2 text-center"
+          >
             Cotizar ahora
-          </button>
+          </a>
         </div>
       )}
     </nav>

@@ -14,7 +14,7 @@ export default function CTA() {
         </a>
 
         <a
-          href="tel:+573219876543"
+          href="tel:+573208402820"
           className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
         >
           Llamar ahora
