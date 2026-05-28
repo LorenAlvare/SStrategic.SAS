@@ -31,7 +31,7 @@ Si no se definen, el sitio usa los valores actuales como respaldo para no romper
 
 El formulario también envía estos campos extra para usarlos en la plantilla de EmailJS:
 
-- `logo_url`: URL pública del logo, por ejemplo `https://tudominio.com/logo.svg`.
+- `logo_url`: URL pública del logo, por ejemplo `https://tudominio.com/logo.png`.
 - `fecha_envio`: fecha legible del envío.
 
 Para que el logo aparezca en correos o PDFs generados desde EmailJS, usa `{{logo_url}}` como `src` de la imagen en la plantilla. La imagen debe estar disponible desde una URL pública, no desde una ruta local del computador.

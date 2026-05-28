@@ -43,7 +43,7 @@ export default function Contacto() {
         import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_o56gvug",
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_i4glevv",
         {
-          logo_url: `${window.location.origin}/logo.svg`,
+          logo_url: `${window.location.origin}/logo.png`,
           fecha_envio: new Date().toLocaleDateString("es-CO", {
             year: "numeric",
             month: "long",
